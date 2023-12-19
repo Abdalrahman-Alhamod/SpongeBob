@@ -22,8 +22,15 @@ private:
 public:
 	PersonDrawer();
 	int textures[6];
-
-	void drawPerson(const Point& position,const float rotation, const float size);
+	/**
+	* @brief Draws a person at a specified 3D position with rotation.
+	*
+	* This function renders a simple person-like figure with textured body parts.
+	*
+	* @param position The 3D point representing the position of the person.
+	* @param rotation The rotation angle (in degrees) around the y-axis.
+	*/
+	void drawPerson(const Point& position, const float rotation);
 };
 
 
