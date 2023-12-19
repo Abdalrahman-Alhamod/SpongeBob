@@ -211,5 +211,15 @@ public:
 	 */
 	void drawRing(const Point& center, const float innerRad, const float outerRad, const Color& color);
 
+	/**
+	* @brief Draws a colored sphere with the specified radius.
+	*
+	* This function renders a simple sphere using OpenGL primitives with the given radius and color.
+	*
+	* @param rad   The radius of the sphere.
+	* @param color The color of the sphere specified using RGB values.
+	*/
+	void drawSphere(const double rad, const Color& color);
+
 private:
 };

@@ -137,7 +137,6 @@ void DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();									// Reset The Current Modelview Matrix
-	glClearStencil(0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
 
@@ -167,26 +166,26 @@ void DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 	
 		//console.print(int(sqrt(pow(p.x - c.x, 2) + pow(p.z - c.z, 2))));
 
-		personDrawer.drawPerson(p, angel, 10);
+		personDrawer.drawPerson(p, angel);
 	}
 	else if (camera->getMode() == FREE_CAMERA){
 
 
 		if (keys[VK_NUMPAD4])
 		{
-			pos.x += 10;
+			pos.x -= 5;
 		}
 		if (keys[VK_NUMPAD6])
 		{
-			pos.x -= 10;
+			pos.x += 5;
 		}
 		if (keys[VK_NUMPAD2])
 		{
-			pos.z -= 10;
+			pos.z += 5;
 		}
 		if (keys[VK_NUMPAD8])
 		{
-			pos.z += 10;
+			pos.z -= 5;
 		}
 		if (keys[VK_ADD]) {
 			updateZoomFactor(ZOOM_INCREASE);
@@ -194,10 +193,7 @@ void DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 		if (keys[VK_SUBTRACT]) {
 			updateZoomFactor(ZOOM_DECREASE);
 		}
-		glPushMatrix();
-		glRotatef(180, 0, 1, 0);
-		personDrawer.drawPerson(pos, 0, 10);
-		glPopMatrix();
+		personDrawer.drawPerson(pos,180);
 	}
 	
 

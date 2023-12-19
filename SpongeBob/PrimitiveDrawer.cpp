@@ -246,3 +246,21 @@ void PrimitiveDrawer::drawRing(const Point& center, const float innerRad, const 
 	}
 	glEnd();
 }
+
+
+void PrimitiveDrawer::drawSphere(const double rad, const Color& color) {
+	glPushMatrix();
+	glScalef(rad, rad, rad);
+	glBegin(GL_POLYGON);
+	for (double z = 0; z <= rad * 2; z += 0.08) {
+		glColor3ub(color.red, color.green, color.blue);
+		double trad = sin(z);//rad-fabs(z)
+		for (double angle = 0.0; angle <= 2 * PI + 0.1; angle += PI / 75) {
+			double x = trad * sin(angle);
+			double y = trad * cos(angle);
+			glVertex3f(x, y, cos(z));
+		}
+	}
+	glEnd();
+	glPopMatrix();
+}
